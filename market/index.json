@@ -1,0 +1,68 @@
+{
+  "format": 1,
+  "title": {
+    "en": "OpenCode Go",
+    "zh": "OpenCode Go"
+  },
+  "description": {
+    "en": "One bundle: a Go quota capsule for the composer.",
+    "zh": "一个 bundle：对话框下方的 Go 配额胶囊。"
+  },
+  "metadata": {
+    "categories": {
+      "usage": {
+        "title": {
+          "en": "Usage and quota",
+          "zh": "用量与配额"
+        }
+      }
+    },
+    "labels": {
+      "quota": {
+        "title": {
+          "en": "Quota",
+          "zh": "配额"
+        }
+      }
+    },
+    "sortKeys": {}
+  },
+  "plugins": [
+    {
+      "name": "dsh-opencode-go-usage",
+      "title": {
+        "en": "OpenCode Go usage",
+        "zh": "OpenCode Go 用量"
+      },
+      "description": {
+        "en": "A capsule below the composer with the room left in the tightest OpenCode Go window, a click-open panel for the 5-hour, weekly and monthly windows with reset countdowns, and an opencode_go_usage agent tool.",
+        "zh": "对话框下方的小胶囊，显示 OpenCode Go 三档窗口里剩余最少的额度；点开面板查看 5 小时、本周、本月三档与重置倒计时，并提供 opencode_go_usage 工具。"
+      },
+      "author": "saltyfishtree",
+      "homepage": "https://github.com/saltyfishtree/dsh-opencode-go-usage",
+      "repository": {
+        "url": "https://github.com/saltyfishtree/dsh-opencode-go-usage"
+      },
+      "metadata": {
+        "category": "usage",
+        "keywords": ["dsh", "dsh-plugin", "opencode", "opencode-go", "quota", "usage"],
+        "labels": ["quota"],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1794582573,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/saltyfishtree/dsh-opencode-go-usage.git",
+            "commit": "1e8cb609238ec562eba6d0306e436f015262491a"
+          },
+          "engines": {
+            "dsh": ">=0.2.0-rc.2 <0.3.0"
+          }
+        }
+      ]
+    }
+  ]
+}
