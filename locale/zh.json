@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "OpenCode Go 用量",
+    "description": "在对话框下方的一行里、活动与用量读数旁边增加一个胶囊，显示 OpenCode Go 三档窗口里剩余最少的额度。点击胶囊打开面板：5 小时、本周、本月三档窗口的已用与剩余百分比、各自的进度条、带实时倒计时的重置时间，以及重新读取接口的「刷新」。读数来自 https://opencode.ai/zen/go/v1/usage，使用 OPENCODE_GO_API_KEY 所指的凭据——也就是 opencode-go 模型提供方已经在用的那把密钥，无需再配一次，读取本身不消耗额度。助手也会得到一个 opencode_go_usage 工具，用来回答同样的数字。没有配置密钥时胶囊保持隐藏；没有 Web 载体的宿主不显示任何内容。关闭该 bundle 会一并移除胶囊、面板和工具。",
+    "detail": "docs/DETAIL.zh.md"
+  }
+}

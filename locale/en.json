@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "OpenCode Go usage",
+    "description": "Adds one capsule to the row below the composer, beside the shipped activity and usage readings, with the room left in the tightest OpenCode Go window. Click the capsule to open a panel with the 5-hour, weekly and monthly windows: used and remaining percentages, a bar each, the reset time with a live countdown, and Refresh to read the endpoint again. Readings come from https://opencode.ai/zen/go/v1/usage with the credential that OPENCODE_GO_API_KEY names — the same one the opencode-go model provider already uses, so no second key is needed — and a reading does not consume quota. The assistant gets an opencode_go_usage tool for the same numbers. Without a configured key the capsule stays hidden, and a Host without a Web carrier shows nothing. Turning the bundle off removes the capsule, the panel and the tool.",
+    "detail": "docs/DETAIL.md"
+  }
+}
