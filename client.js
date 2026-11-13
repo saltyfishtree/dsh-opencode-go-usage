@@ -50,7 +50,6 @@ window.__ModuleLoader__.load({
         'updated.seconds': 'Updated {count}s ago',
         'updated.minutes': 'Updated {count}m ago',
         'updated.now': 'Updated just now',
-        'updated.loading': 'Reading…',
         'refresh': 'Refresh',
         'refreshing': 'Refreshing…',
         'stale': 'The newest request failed; this is the last reading.',
@@ -86,7 +85,6 @@ window.__ModuleLoader__.load({
         'updated.seconds': '{count} 秒前更新',
         'updated.minutes': '{count} 分钟前更新',
         'updated.now': '刚刚更新',
-        'updated.loading': '读取中…',
         'refresh': '刷新',
         'refreshing': '正在刷新…',
         'stale': '最新一次请求失败，显示上次读数。',
@@ -523,9 +521,11 @@ window.__ModuleLoader__.load({
       const tightest = snapshot === undefined ? undefined : snapshot.windows[windowName]
       const fetched = snapshot === undefined ? undefined : new Date(snapshot.fetchedAt).getTime()
       const age = fetched === undefined || Number.isNaN(fetched) ? null : Math.max(0, now - fetched)
+      // With no reading yet the footer carries no age: "reading…" would claim
+      // work that already failed.
       const updated =
         age === null
-          ? t('updated.loading')
+          ? null
           : age < 5_000
             ? t('updated.now')
             : age < 60_000
@@ -580,22 +580,24 @@ window.__ModuleLoader__.load({
                 : h(WindowRow, { key: name, name, reading, t, now })
             }),
 
-        snapshot !== undefined && snapshot.stale === true && failure === undefined
-          ? h('div', { className: 'dsh-gou-note', 'data-kind': 'warn' }, t('stale'))
-          : null,
-        failureText === undefined
-          ? null
-          : h(
+        // One note at a time: with a reading on screen a failure means the rows
+        // are the last good ones, so it reads as a warning, not as an error
+        // that hides the data.
+        failureText !== undefined
+          ? h(
               'div',
-              { className: 'dsh-gou-note', 'data-kind': 'error' },
-              failureText,
+              { className: 'dsh-gou-note', 'data-kind': snapshot === undefined ? 'error' : 'warn' },
+              snapshot === undefined ? failureText : `${t('stale')} ${failureText}`,
               ' ',
               h(
                 'button',
                 { type: 'button', className: 'dsh-gou-button', onClick: onRefresh, disabled: refreshing },
                 t('error.retry'),
               ),
-            ),
+            )
+          : snapshot !== undefined && snapshot.stale === true
+            ? h('div', { className: 'dsh-gou-note', 'data-kind': 'warn' }, t('stale'))
+            : null,
 
         h(
           'div',
