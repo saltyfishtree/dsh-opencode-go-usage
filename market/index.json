@@ -45,18 +45,27 @@
       },
       "metadata": {
         "category": "usage",
-        "keywords": ["dsh", "dsh-plugin", "opencode", "opencode-go", "quota", "usage"],
-        "labels": ["quota"],
+        "keywords": [
+          "dsh",
+          "dsh-plugin",
+          "opencode",
+          "opencode-go",
+          "quota",
+          "usage"
+        ],
+        "labels": [
+          "quota"
+        ],
         "sortKeys": {}
       },
       "versions": [
         {
           "version": "0.1.0",
-          "publishTimestamp": 1794582573,
+          "publishTimestamp": 1794582855,
           "source": {
             "type": "git",
             "url": "https://github.com/saltyfishtree/dsh-opencode-go-usage.git",
-            "commit": "1e8cb609238ec562eba6d0306e436f015262491a"
+            "commit": "148a619c2adf3faccd85670b4fa02180f6ba20f6"
           },
           "engines": {
             "dsh": ">=0.2.0-rc.2 <0.3.0"
